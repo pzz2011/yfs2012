@@ -17,8 +17,10 @@
 #define MAX_PDU (10<<20) //maximum PDF is 10M
 
 
+
+
 connection::connection(chanmgr *m1, int f1, int l1) 
-: mgr_(m1), fd_(f1), dead_(false),waiters_(0), refno_(1),lossy_(l1)
+	: mgr_(m1), fd_(f1), dead_(false),waiters_(0), refno_(1),lossy_(l1)
 {
 
 	int flags = fcntl(fd_, F_GETFL, NULL);
