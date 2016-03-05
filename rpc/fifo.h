@@ -23,9 +23,9 @@ class fifo {
 
 	private:
 		std::list<T> q_;
-		pthread_mutex_t m_;
-		pthread_cond_t non_empty_c_; // q went non-empty
-		pthread_cond_t has_space_c_; // q is not longer overfull
+		pthread_mutex_t m_;                                          // using mutex to control
+		pthread_cond_t non_empty_c_; // q went non-empty             // condition variable which is using to block thread
+		pthread_cond_t has_space_c_; // q is not longer overfull     // condition variable which is using to block thread 
 		unsigned int max_; //maximum capacity of the queue, block enq threads if exceeds this limit
 };
 

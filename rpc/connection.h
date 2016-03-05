@@ -13,15 +13,15 @@
 
 class connection;
 
-class chanmgr {
+class chanmgr {   // what is chanmgr
 	public:
 		virtual bool got_pdu(connection *c, char *b, int sz) = 0;
-		virtual ~chanmgr() {}
+		virtual ~chanmgr() {}  // virtual disconstructor function
 };
 
 class connection : public aio_callback {
 	public:
-		struct charbuf {
+		struct charbuf {  // char buffer using to store numbers of char 
 			charbuf(): buf(NULL), sz(0), solong(0) {}
 			charbuf (char *b, int s) : buf(b), sz(s), solong(0){}
 			char *buf;
